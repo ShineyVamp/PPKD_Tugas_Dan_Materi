@@ -16,8 +16,9 @@ class ImageDay6 extends StatelessWidget {
             width: 500,
             height: 810,
             decoration: BoxDecoration(
+              shape: BoxShape.circle,
               image: DecorationImage(
-                image: AssetImage("assets/images/absen.jpg"),
+                image: AssetImage("assets/images/rt.jpg"),
                 fit: BoxFit.fill,
               ),
             ),
