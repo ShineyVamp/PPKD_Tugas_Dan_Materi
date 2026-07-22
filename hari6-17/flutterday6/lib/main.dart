@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/Tugas1Flutter.dart';
+import 'package:flutterday6/TugasFlutter/Tugas2Flutter.dart';
 import 'package:flutterday6/day_5/layouting.dart';
 import 'package:flutterday6/day_5/styling.dart';
 import 'package:flutterday6/day_6/center.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: CenterDay6(),
+      home: Tugas2flutter(),
     );
   }
 }
