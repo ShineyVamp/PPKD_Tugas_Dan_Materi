@@ -20,7 +20,7 @@ class GridviewDay8 extends StatelessWidget {
       body: GridView.count(
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        crossAxisCount: 2,
+        crossAxisCount: 3,
         children: <Widget>[
           Container(color: Colors.red),
           Container(color: Colors.yellow),
