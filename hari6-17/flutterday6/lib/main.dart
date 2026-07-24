@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/TugasFlutter/Tugas1Flutter.dart';
-import 'package:flutterday6/TugasFlutter/Tugas2Flutter.dart';
-import 'package:flutterday6/day_5/layouting.dart';
-import 'package:flutterday6/day_5/styling.dart';
-import 'package:flutterday6/day_6/center.dart';
-import 'package:flutterday6/day_6/container.dart';
-import 'package:flutterday6/day_6/expander.dart';
-import 'package:flutterday6/day_6/image.dart';
-import 'package:flutterday6/day_6/layouting.dart';
-import 'package:flutterday6/day_6/spacer.dart';
+import 'package:flutterday6/day_8/gridview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData( 
+      theme: ThemeData(
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
@@ -40,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Tugas2flutter(),
+      home: GridviewDay8(),
     );
   }
 }
