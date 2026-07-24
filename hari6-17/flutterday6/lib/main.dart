@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/day_8/gridview.dart';
+import 'package:flutterday6/TugasFlutter/Tugas3Flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: GridviewDay8(),
+      home: Tugas3flutter(),
     );
   }
 }
