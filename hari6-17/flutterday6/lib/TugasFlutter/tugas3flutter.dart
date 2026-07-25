@@ -28,7 +28,7 @@ class Tugas3flutter extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white,
                   boxShadow: [
-                    BoxShadow(color: Colors.black, offset: Offset(5, 5)),
+                    BoxShadow(color: Colors.black, blurRadius: 4),
                   ],
                 ),
                 padding: EdgeInsets.all(20),
@@ -99,32 +99,156 @@ class Tugas3flutter extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 "Wilayah Pemantauan Kualitas Udara",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: 20,),
               GridView.count(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 crossAxisSpacing: 5,
-                mainAxisSpacing: 2,
+                mainAxisSpacing: 20,
                 crossAxisCount: 3,
                 children: <Widget>[
-                  Container(
-                    child: Stack(
-                      alignment: AlignmentGeometry.bottomCenter,
-                      children: [
-                        Image(image: AssetImage("assets/images/rt.jpg")),
-                        Container(
-                          height: 10,
-                          width: 10,
-                          color: Colors.amberAccent,
-                        ),
-                        Text("text"),
-                      ],
-                    ),
+                  Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(image: AssetImage("assets/images/rt.jpg")))
+                      ),
+                      Positioned(
+                        bottom: -8,
+                        // top: 20,
+                        child: Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          // width: 90,
+                          // height: 20,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),),
+                        ))
+                    ],
                   ),
-                  Container(color: Colors.amber),
-                  Container(color: Colors.amber),
+                  Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(image: AssetImage("assets/images/rt.jpg"),),
+                      boxShadow: [BoxShadow(color: Colors.black,blurRadius: 1.5)]
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -8,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                            child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),)))
+                  ],),
+                  Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(image: AssetImage("assets/images/rt.jpg"),),
+                      boxShadow: [BoxShadow(color: Colors.black,blurRadius: 1.5)]
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -8,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                            child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),)))
+                  ],),
+                                  Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -8,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                            child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),)))
+                  ],),
+                                                    Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -8,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                            child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),)))
+                  ],),
+                                                    Stack(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    clipBehavior: Clip.none,
+                    children: [
+                    Container(
+                      decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: -8,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                            child: Text("Raja Trakir", style: TextStyle(
+                            fontWeight: FontWeight.bold
+                          ),)))
+                  ],),
                 ],
               ),
             ],
