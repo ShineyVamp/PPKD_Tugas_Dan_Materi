@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/TugasFlutter/Tugas3Flutter.dart';
-import 'package:flutterday6/TugasFlutter/tugas4flutter.dart';
+import 'package:flutterday6/day_9/stateful.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +31,16 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Tugas4Flutter(),
+      home: StaeleFull(),
     );
+  }
+}
+
+class Anjay extends StatelessWidget {
+  const Anjay({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text("data"));
   }
 }
