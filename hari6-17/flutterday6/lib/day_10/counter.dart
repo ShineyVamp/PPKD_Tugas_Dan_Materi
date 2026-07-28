@@ -25,6 +25,37 @@ class _CounterDay10StateState extends State<CounterDay10State> {
               Text(counter.toString(), style: TextStyle(fontSize: 100)),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 20,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // log(counter.toString());
+                  setState(() {
+                    counter++;
+                  });
+                },
+                child: Text("Tambah"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    counter--;
+                  });
+                },
+                child: Text("Kurang"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    counter = 0;
+                  });
+                },
+                child: Text("Reset"),
+              ),
+            ],
+          ),
         ],
       ),
     );
