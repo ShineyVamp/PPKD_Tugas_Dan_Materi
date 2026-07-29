@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/day_10/image.dart';
+import 'package:flutterday6/TugasFlutter/tugas6flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +31,13 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ImageDay5State(),
+      // PUSHNAMEWD
+      // initialRoute: "/",
+      // routes: {
+      //   "/": (context) => RoutingDay11(),
+      //   "/home": (context) => HomeRoutingDay11(),
+      // },
+      home: TestAja(),
     );
   }
 }
