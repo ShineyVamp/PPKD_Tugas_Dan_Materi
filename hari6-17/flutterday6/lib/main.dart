@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //   "/": (context) => RoutingDay11(),
       //   "/home": (context) => HomeRoutingDay11(),
       // },
-      home: TestAja(),
+      home: Tugas6Flutter(),
     );
   }
 }

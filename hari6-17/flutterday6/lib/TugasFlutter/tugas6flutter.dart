@@ -2,16 +2,16 @@ import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-class TestAja extends StatefulWidget {
-  const TestAja({super.key});
+class Tugas6Flutter extends StatefulWidget {
+  const Tugas6Flutter({super.key});
 
   @override
-  State<TestAja> createState() => _TestAjaState();
+  State<Tugas6Flutter> createState() => _Tugas6FlutterState();
 }
 
 bool isChecked = false;
 
-class _TestAjaState extends State<TestAja> {
+class _Tugas6FlutterState extends State<Tugas6Flutter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
