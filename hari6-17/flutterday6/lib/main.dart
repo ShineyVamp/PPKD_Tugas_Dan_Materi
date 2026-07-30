@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas6flutter.dart';
+import 'package:flutterday6/day_8/gridview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,12 +33,12 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
       // PUSHNAMEWD
-      // initialRoute: "/",
-      // routes: {
-      //   "/": (context) => RoutingDay11(),
-      //   "/home": (context) => HomeRoutingDay11(),
-      // },
-      home: Tugas6Flutter(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => Tugas6Flutter(),
+        "/grid": (context) => GridviewDay8(),
+      },
+      // home: Tugas6Flutter(),
     );
   }
 }

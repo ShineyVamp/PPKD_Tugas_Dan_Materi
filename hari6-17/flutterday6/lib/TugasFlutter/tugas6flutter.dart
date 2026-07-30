@@ -77,9 +77,13 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
                       ],
                     ),
                     SizedBox(height: 26),
-                    fieldInputUser("Loisbecket@gmail.com", "Email"),
+                    FieldTextInputUser(
+                      init: "Loisbecket@gmail.com",
+                      text: "Email",
+                    ),
                     SizedBox(height: 16),
-                    fieldInputUser("*******", "Password"),
+                    FieldTextInputUser(init: "*******", text: "Password"),
+                    // fieldInputUser("*******", "Password"),
                     SizedBox(height: 16),
                     Row(
                       children: [
@@ -153,7 +157,9 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
                         backgroundColor: Color(0xff1D61E7),
                         shadowColor: Colors.black,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/grid");
+                      },
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 16,
@@ -199,30 +205,6 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
     );
   }
 
-  Column fieldInputUser(String init, String text) {
-    return Column(
-      spacing: 2,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(text),
-        TextFormField(
-          initialValue: init,
-          style: TextStyle(
-            fontWeight: FontWeight(500),
-            fontFamily: 'inter',
-            fontSize: 16,
-          ),
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(color: Color(0xffEDF1F3)),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   ElevatedButton buttonLogin3rd(String path, String text) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -261,6 +243,37 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class FieldTextInputUser extends StatelessWidget {
+  final String text;
+  final String init;
+  const FieldTextInputUser({super.key, required this.text, required this.init});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 2,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(text),
+        TextFormField(
+          initialValue: init,
+          style: TextStyle(
+            fontWeight: FontWeight(500),
+            fontFamily: 'inter',
+            fontSize: 16,
+          ),
+          decoration: InputDecoration(
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: Color(0xffEDF1F3)),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
