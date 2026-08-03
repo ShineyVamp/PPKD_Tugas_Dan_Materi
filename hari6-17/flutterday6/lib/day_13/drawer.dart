@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas3flutter.dart';
 import 'package:flutterday6/TugasFlutter/tugas4flutter.dart';
 import 'package:flutterday6/TugasFlutter/tugas5flutter.dart';
-import 'package:flutterday6/day_13/input_widget/checkbox.dart';
+import 'package:flutterday6/day_13/input_widget/input_widget.dart';
 import 'package:flutterday6/extension/navigation.dart';
 
 class DrawerDay13 extends StatefulWidget {

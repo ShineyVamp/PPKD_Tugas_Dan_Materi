@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/TugasFlutter/tugas6flutter.dart';
+import 'package:flutterday6/TugasFlutter/tugas7flutter.dart';
 import 'package:flutterday6/day_13/drawer.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+void main() async {
+  await initializeDateFormatting("id_ID", null);
   runApp(const MyApp());
 }
 
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
       // PUSHNAMEWD
       initialRoute: "/",
       routes: {
-        "/": (context) => Tugas6Flutter(),
+        "/": (context) => Tugas7flutter(),
         "/grid": (context) => DrawerDay13(),
       },
       // home: Tugas6Flutter(),
