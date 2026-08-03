@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterday6/TugasFlutter/tugas7page/kategoriproduk.dart';
+import 'package:flutterday6/TugasFlutter/tugas7page/pengingat.dart';
 import 'package:flutterday6/TugasFlutter/tugas7page/syaratdanketentuan.dart';
+import 'package:flutterday6/TugasFlutter/tugas7page/tanggal.dart';
 import 'package:flutterday6/TugasFlutter/tugas7page/tema.dart';
 import 'package:flutterday6/extension/navigation.dart';
 
@@ -12,19 +15,18 @@ class Tugas7flutter extends StatefulWidget {
 
 class _Tugas7flutterState extends State<Tugas7flutter> {
   int _selectedButton = 0;
-  int angka = 0;
   void changebutton(int index) {
     _selectedButton = index;
     setState(() {});
     context.pop();
   }
 
-  final List<Widget> _widgetOptions = [Syaratdanketentuan(), GantiTema()];
+  final List<Widget> _widgetOptions = [Syaratdanketentuan(), GantiTema(), Kategoriproduk(), TanggalTugas7(), Pengingat()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tugas Day 7 (INTERAKTIFD)"),
+        title: Text(_selectedButton == 0 ? "Persyaratan Dan Ketentua": _selectedButton == 1 ? "Ganti Tema": _selectedButton == 2 ? "Kategori Produk": _selectedButton == 3 ? "Pilih Tanggal" : "Atur Pengingat"),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -49,11 +51,11 @@ class _Tugas7flutterState extends State<Tugas7flutter> {
                 ),
               ),
             ),
-            listMenu(Icons.edit_document, "Persyaratan dan Ketentuan"),
-            listMenu(Icons.light_mode, "Ganti Tema"),
-            listMenu(Icons.trolley, "Kategori Produk"),
-            listMenu(Icons.date_range, "Pilih Tanggal"),
-            listMenu(Icons.notifications, "Atur Pengingat"),
+            listMenu(Icons.edit_document, "Persyaratan dan Ketentuan", 0),
+            listMenu(Icons.light_mode, "Ganti Tema",1),
+            listMenu(Icons.trolley, "Kategori Produk",2),
+            listMenu(Icons.date_range, "Pilih Tanggal",3),
+            listMenu(Icons.notifications, "Atur Pengingat",4),
           ],
         ),
       ),
@@ -61,7 +63,7 @@ class _Tugas7flutterState extends State<Tugas7flutter> {
     );
   }
 
-  ListTile listMenu(IconData icon, String teks) {
+  ListTile listMenu(IconData icon, String teks, int angka) {
     return ListTile(
       leading: Icon(icon),
       title: Text(teks),

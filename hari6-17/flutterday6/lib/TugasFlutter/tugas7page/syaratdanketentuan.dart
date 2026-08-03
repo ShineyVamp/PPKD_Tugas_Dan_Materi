@@ -8,7 +8,7 @@ class Syaratdanketentuan extends StatefulWidget {
 }
 
 class _SyaratdanketentuanState extends State<Syaratdanketentuan> {
-  bool isChecked = true;
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

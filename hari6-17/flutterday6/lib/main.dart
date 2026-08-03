@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas7flutter.dart';
+import 'package:flutterday6/TugasFlutter/tugas8flutter.dart';
 import 'package:flutterday6/day_13/drawer.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       // PUSHNAMEWD
       initialRoute: "/",
       routes: {
-        "/": (context) => Tugas7flutter(),
+        "/": (context) => Tugas8flutter(),
         "/grid": (context) => DrawerDay13(),
       },
       // home: Tugas6Flutter(),
