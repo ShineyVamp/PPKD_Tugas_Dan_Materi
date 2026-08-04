@@ -21,12 +21,28 @@ class _Tugas7flutterState extends State<Tugas7flutter> {
     context.pop();
   }
 
-  final List<Widget> _widgetOptions = [Syaratdanketentuan(), GantiTema(), Kategoriproduk(), TanggalTugas7(), Pengingat()];
+  final List<Widget> _widgetOptions = [
+    Syaratdanketentuan(),
+    GantiTema(),
+    Kategoriproduk(),
+    TanggalTugas7(),
+    Pengingat(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_selectedButton == 0 ? "Persyaratan Dan Ketentua": _selectedButton == 1 ? "Ganti Tema": _selectedButton == 2 ? "Kategori Produk": _selectedButton == 3 ? "Pilih Tanggal" : "Atur Pengingat"),
+        title: Text(
+          _selectedButton == 0
+              ? "Persyaratan Dan Ketentuan"
+              : _selectedButton == 1
+              ? "Ganti Tema"
+              : _selectedButton == 2
+              ? "Kategori Produk"
+              : _selectedButton == 3
+              ? "Pilih Tanggal"
+              : "Atur Pengingat",
+        ),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -52,10 +68,10 @@ class _Tugas7flutterState extends State<Tugas7flutter> {
               ),
             ),
             listMenu(Icons.edit_document, "Persyaratan dan Ketentuan", 0),
-            listMenu(Icons.light_mode, "Ganti Tema",1),
-            listMenu(Icons.trolley, "Kategori Produk",2),
-            listMenu(Icons.date_range, "Pilih Tanggal",3),
-            listMenu(Icons.notifications, "Atur Pengingat",4),
+            listMenu(Icons.light_mode, "Ganti Tema", 1),
+            listMenu(Icons.trolley, "Kategori Produk", 2),
+            listMenu(Icons.date_range, "Pilih Tanggal", 3),
+            listMenu(Icons.notifications, "Atur Pengingat", 4),
           ],
         ),
       ),

@@ -8,7 +8,7 @@ class Kategoriproduk extends StatefulWidget {
 }
 
 class _KategoriprodukState extends State<Kategoriproduk> {
-  String?selected;
+  String? selected;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,19 +18,31 @@ class _KategoriprodukState extends State<Kategoriproduk> {
           children: [
             DropdownButton(
               value: selected,
-              items: ["Elektronik", "Pakaian", "Makanan", "Lainnya"].map((String val) {
-              return DropdownMenuItem(value: val,child: Text(val));
-            }).toList(), onChanged: (value) {
-              setState(() {
-                selected = value;
-              });
-            },),
+              items: ["Elektronik", "Pakaian", "Makanan", "Lainnya"].map((
+                String val,
+              ) {
+                return DropdownMenuItem(value: val, child: Text(val));
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selected = value;
+                });
+              },
+            ),
             RichText(
-              text: TextSpan(text: "Aku Adalah", style: TextStyle(fontSize: 20, color: Colors.black),/* style: DefaultTextStyle.of(context).style (kalo mau langsung default)*/
-              children: <TextSpan>[
-              TextSpan(text: " $selected", style: TextStyle(fontWeight: FontWeight.bold)),
-              TextSpan(text: " Saya")
-            ]), ) // nyoba richtext
+              text: TextSpan(
+                text: "Aku Adalah",
+                style: TextStyle(fontSize: 20, color: Colors.black),
+                /* style: DefaultTextStyle.of(context).style (kalo mau langsung default)*/
+                children: <TextSpan>[
+                  TextSpan(
+                    text: selected == null ? " Belum Pilih" : " $selected",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(text: " Saya"),
+                ],
+              ),
+            ), // nyoba richtext
             // Text("Anda Memilih Kategori $selected", style: TextStyle(fontSize: 20),)
           ],
         ),

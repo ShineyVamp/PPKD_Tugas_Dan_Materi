@@ -3,6 +3,9 @@ import 'package:flutterday6/TugasFlutter/tugas3flutter.dart';
 import 'package:flutterday6/TugasFlutter/tugas4flutter.dart';
 import 'package:flutterday6/TugasFlutter/tugas5flutter.dart';
 import 'package:flutterday6/day_13/input_widget/input_widget.dart';
+import 'package:flutterday6/day_15/list.dart';
+import 'package:flutterday6/day_15/list_model.dart';
+import 'package:flutterday6/day_15/list_of_map.dart';
 import 'package:flutterday6/extension/navigation.dart';
 
 class DrawerDay13 extends StatefulWidget {
@@ -26,6 +29,9 @@ class _DrawerDay13State extends State<DrawerDay13> {
     Tugas4Flutter(),
     Tugas5flutter(),
     InputWidgetDay13(),
+    ListDataDay13(),
+    ListOfMapDay13(),
+    ListOfModelDay13(),
   ];
 
   @override
@@ -61,6 +67,27 @@ class _DrawerDay13State extends State<DrawerDay13> {
               title: Text("Input Widget"),
               onTap: () {
                 changeButton(3);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("List Data"),
+              onTap: () {
+                changeButton(4);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("List Map"),
+              onTap: () {
+                changeButton(5);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("List Model"),
+              onTap: () {
+                changeButton(6);
               },
             ),
           ],
