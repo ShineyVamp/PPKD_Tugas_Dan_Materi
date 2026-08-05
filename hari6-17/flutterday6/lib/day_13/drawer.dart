@@ -6,6 +6,7 @@ import 'package:flutterday6/day_13/input_widget/input_widget.dart';
 import 'package:flutterday6/day_15/list.dart';
 import 'package:flutterday6/day_15/list_model.dart';
 import 'package:flutterday6/day_15/list_of_map.dart';
+import 'package:flutterday6/day_16/text_form_field.dart';
 import 'package:flutterday6/extension/navigation.dart';
 
 class DrawerDay13 extends StatefulWidget {
@@ -32,6 +33,7 @@ class _DrawerDay13State extends State<DrawerDay13> {
     ListDataDay13(),
     ListOfMapDay13(),
     ListOfModelDay13(),
+    TextFormFieldday16(),
   ];
 
   @override
@@ -88,6 +90,13 @@ class _DrawerDay13State extends State<DrawerDay13> {
               title: Text("List Model"),
               onTap: () {
                 changeButton(6);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Text Form Fielkd"),
+              onTap: () {
+                changeButton(7);
               },
             ),
           ],
