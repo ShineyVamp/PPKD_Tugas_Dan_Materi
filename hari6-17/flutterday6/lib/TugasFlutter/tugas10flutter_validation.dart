@@ -81,14 +81,21 @@ class _Tugas10flutterValidationState extends State<Tugas10flutterValidation> {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          // title: Text("Gagal!"),
+                          title: Text("Gagal!"),
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               LottieBuilder.asset(
                                 "assets/animations/Incorrect.json",
                               ),
-                              Text(errors.join('\n')),
+                              Text(
+                                errors.join('\n'),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ],
                           ),
                           actions: [
