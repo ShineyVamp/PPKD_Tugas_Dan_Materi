@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterday6/TugasFlutter/tugas10flutter_validation.dart';
+import 'package:flutterday6/TugasFlutter/tugas11disini/services/preference_handler11.dart';
+import 'package:flutterday6/TugasFlutter/tugas11disini/views/splashscreentugas11.dart';
 import 'package:flutterday6/day_13/drawer.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting("id_ID", null);
+  await PreferenceHandler.init();
   runApp(const MyApp());
 }
 
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
       // PUSHNAMEWD
       initialRoute: "/",
       routes: {
-        "/": (context) => Tugas10flutterValidation(),
+        "/": (context) => SplashScreenDay11(),
         "/grid": (context) => DrawerDay13(),
       },
       // home: Tugas6Flutter(),
