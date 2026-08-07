@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas11disini/services/preference_handler11.dart';
-import 'package:flutterday6/TugasFlutter/tugas11disini/views/splashscreentugas11.dart';
 import 'package:flutterday6/day_13/drawer.dart';
+import 'package:flutterday6/day_18/views/splash_screenday18.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       // PUSHNAMEWD
       initialRoute: "/",
       routes: {
-        "/": (context) => SplashScreenDay11(),
+        "/": (context) => SplashScreenDay18(),
         "/grid": (context) => DrawerDay13(),
       },
       // home: Tugas6Flutter(),
