@@ -68,7 +68,7 @@ class DbHelper {
 
     Future<void> deleteUser(int id) async {
     final db = await database;
-    await db.delete('users', where: 'id = ?', whereArgs: [id]);
+    await db.delete('user', where: 'id = ?', whereArgs: [id]);
   }
 
   Future<bool> updateUser(UserSQLModel pengguna) async {
@@ -76,7 +76,7 @@ class DbHelper {
 
     try {
       int count = await db.update(
-        'users',
+        'user',
         pengguna.toMap(),
         where: 'id = ?',
         whereArgs: [pengguna.id],
