@@ -19,20 +19,23 @@ class _Logintugas12State extends State<Logintugas12> {
   final _formKey = GlobalKey<FormState>();
   bool lihatPass = false;
 
-  void login() async{
+  void login() async {
     final email = emailC.text.trim();
     final password = passC.text.trim();
 
     final pengguna = await DbHelper().loginUser(email, password);
 
-    if(!mounted) return;
+    if (!mounted) return;
 
-    if(pengguna != null){
+    if (pengguna != null) {
       context.pushAndRemoveAll(Home());
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Data Tidak Ditemukan")));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Data Tidak Ditemukan")));
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,9 +75,15 @@ class _Logintugas12State extends State<Logintugas12> {
                   child: Divider(thickness: 2, color: Color(0xffC9362B)),
                 ),
                 SizedBox(height: 40),
-                Text(" Email", style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.bold),),
-                SizedBox(height: 5,),
-                MasukkanPengguna( 
+                Text(
+                  " Email",
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5),
+                MasukkanPengguna(
                   bintang: false,
                   namaC: emailC,
                   teksHint: 'Masukkan Email Anda',
@@ -88,27 +97,34 @@ class _Logintugas12State extends State<Logintugas12> {
                   },
                 ),
                 SizedBox(height: 10),
-                Text(" Password", style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.bold),),
-                SizedBox(height: 5,),
+                Text(
+                  " Password",
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5),
                 MasukkanPengguna(
                   suffixIcon: GestureDetector(
                     onTap: () {
-                      setState(() {
-                      });
-                      lihatPass=!lihatPass;
+                      setState(() {});
+                      lihatPass = !lihatPass;
                     },
-                    child: Icon(lihatPass?Icons.visibility_off:Icons.visibility),
+                    child: Icon(
+                      lihatPass ? Icons.visibility_off : Icons.visibility,
+                    ),
                   ),
                   bintang: lihatPass,
                   namaC: passC,
                   teksHint: 'Masukkan Password Anda',
                   validator: (p1) {
-                        if (p1 == null || p1.isEmpty) {
-                          return "Password tidak boleh kosong";
-                        } else if (p1.length < 8) {
-                          return "Password kurang dari 8 karakter";
-                        }
-                        return null;
+                    if (p1 == null || p1.isEmpty) {
+                      return "Password tidak boleh kosong";
+                    } else if (p1.length < 8) {
+                      return "Password kurang dari 8 karakter";
+                    }
+                    return null;
                   },
                 ),
                 SizedBox(height: 20),
@@ -125,13 +141,23 @@ class _Logintugas12State extends State<Logintugas12> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Belum Punya Akun? ", style: GoogleFonts.plusJakartaSans(fontSize: 14),),
+                    Text(
+                      "Belum Punya Akun? ",
+                      style: GoogleFonts.plusJakartaSans(fontSize: 14),
+                    ),
                     GestureDetector(
                       onTap: () {
                         context.push(Registertugas12());
                       },
-                      child: Text("Buat Akun",style: GoogleFonts.plusJakartaSans(color: Color(0xffC9362B), fontSize: 14, fontWeight: FontWeight.bold),),
-                    )
+                      child: Text(
+                        "Buat Akun",
+                        style: GoogleFonts.plusJakartaSans(
+                          color: Color(0xffC9362B),
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -198,8 +224,10 @@ class MasukkanPengguna extends StatelessWidget {
     required this.bintang,
     this.suffixIcon,
     this.prefixIcon,
+    this.onChanged,
   });
 
+  final void Function(String)? onChanged;
   final TextEditingController namaC;
   final String? Function(String?)? validator;
   final String teksHint;
@@ -210,6 +238,7 @@ class MasukkanPengguna extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       obscureText: bintang,
       validator: validator,
       controller: namaC,

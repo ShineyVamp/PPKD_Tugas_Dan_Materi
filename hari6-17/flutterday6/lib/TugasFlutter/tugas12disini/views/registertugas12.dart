@@ -22,6 +22,9 @@ class _Registertugas12State extends State<Registertugas12> {
   final TextEditingController konpassC = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   bool lihatPass = true;
+  bool passB = false;
+  bool passP = false;
+  bool passCon = false;
 
   void register() async {
     final nama = namaC.text.trim();
@@ -30,24 +33,35 @@ class _Registertugas12State extends State<Registertugas12> {
     final asalKota = asalKotaC.text.trim();
     final pass = passC.text.trim();
 
-    final pengguna = await UserSQLModel(nama: nama, email: email, noHp: noHp, password: pass, asalKota: asalKota);
+    final pengguna = UserSQLModel(
+      nama: nama,
+      email: email,
+      noHp: noHp,
+      password: pass,
+      asalKota: asalKota,
+    );
 
     bool success = await DbHelper().userRegister(pengguna);
 
-    if(!mounted) return;
+    if (!mounted) return;
 
-    if(success){
+    if (success) {
       context.push(Logintugas12());
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Register Berhasil Silahkan Login")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Register Berhasil Silahkan Login")),
+      );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Email Sudah Terdaftar")));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Email Sudah Terdaftar")));
     }
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Color(0xffF4F0E7),
         centerTitle: true,
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -60,7 +74,7 @@ class _Registertugas12State extends State<Registertugas12> {
         backgroundColor: Color(0xffF4F0E7),
         leading: GestureDetector(
           onTap: () {
-            context.pop();
+            context.pushAndRemoveAll(Logintugas12());
           },
           child: Icon(Icons.arrow_back),
         ),
@@ -186,6 +200,14 @@ class _Registertugas12State extends State<Registertugas12> {
                       ),
                       SizedBox(height: 10),
                       MasukkanPengguna(
+                        onChanged: (p0) {
+                          setState(() {});
+                          passP = p0.length >= 8;
+                          passB = p0.isNotEmpty;
+                          passCon =
+                              p0.contains(RegExp(r'[A-Z]')) &&
+                              p0.contains(RegExp(r'[a-z]'));
+                        },
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {});
@@ -199,13 +221,37 @@ class _Registertugas12State extends State<Registertugas12> {
                         validator: (p0) {
                           if (p0 == null || p0.isEmpty) {
                             return "Password Wajib Diisi";
-                          } else if(p0.length < 8){
+                          } else if (p0.length < 8) {
                             return "Password Minimal 8 Karakter";
                           }
                           return null;
                         },
                         teksHint: 'Masukkan Password Anda',
                         bintang: lihatPass,
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 70,
+                            child: VerticalDivider(thickness: 2),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Ketentuan Kata Sandi :'),
+                              ketentuanKataSandi(" Minimal 8 Karakter", passP),
+                              ketentuanKataSandi(
+                                passB
+                                    ? " Mantap udah ada password"
+                                    : " Mana Password nya le",
+                                passB,
+                              ),
+                              ketentuanKataSandi(" Minimal 8 Karakter", passP),
+                            ],
+                          ),
+                        ],
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -230,7 +276,7 @@ class _Registertugas12State extends State<Registertugas12> {
                         validator: (p0) {
                           if (p0 == null || p0.isEmpty) {
                             return "Nama Wajib Diisi";
-                          } else if (!p0.contains(passC.text)){
+                          } else if (!p0.contains(passC.text)) {
                             return "Password Tidak Sama";
                           }
                           return null;
@@ -271,6 +317,19 @@ class _Registertugas12State extends State<Registertugas12> {
           ),
         ),
       ),
+    );
+  }
+
+  Row ketentuanKataSandi(String teks, bool kon) {
+    return Row(
+      children: [
+        Icon(
+          kon ? Icons.check_circle_sharp : Icons.remove_circle,
+          size: 15,
+          color: kon ? Colors.green : Colors.red,
+        ),
+        Text(teks),
+      ],
     );
   }
 }
