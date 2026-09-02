@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas11disini/services/preference_handler11.dart';
-import 'package:flutterday6/TugasFlutter/tugas12disini/views/logintugas12.dart';
-import 'package:flutterday6/TugasFlutter/tugas12disini/views/splashscreen.dart';
-import 'package:flutterday6/day_13/drawer.dart';
-import 'package:flutterday6/day_18/views/splash_screenday18.dart';
+import 'package:flutterday6/TugasFlutter/tugas15disini/views/anjay.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -41,21 +38,9 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
       // PUSHNAMEWD
-      initialRoute: "/",
-      routes: {
-        "/": (context) => Splashscreen12(),
-        "/grid": (context) => DrawerDay13(),
-      },
-      // home: Tugas6Flutter(),
+      // initialRoute: "/",
+      // routes: {"/": (context) => Anjay(), "/grid": (context) => DrawerDay13()},
+      home: Anjay(),
     );
-  }
-}
-
-class Anjay extends StatelessWidget {
-  const Anjay({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text("data"));
   }
 }
