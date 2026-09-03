@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutterday6/day32/models/post_models.dart';
+import 'package:flutterday6/day_32/models/post_models.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 

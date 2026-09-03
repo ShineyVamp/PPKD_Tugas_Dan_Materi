@@ -13,7 +13,7 @@ class Anjay2 extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffE0E5EC),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

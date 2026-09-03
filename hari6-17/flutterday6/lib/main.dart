@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterday6/TugasFlutter/tugas11disini/services/preference_handler11.dart';
-import 'package:flutterday6/TugasFlutter/tugas15disini/views/anjay.dart';
+import 'package:flutterday6/TugasFlutter/tugas16disini/services/token_storage.dart';
+import 'package:flutterday6/TugasFlutter/tugas16disini/views/login_view.dart';
+import 'package:flutterday6/TugasFlutter/tugas16disini/views/profile_view.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
@@ -13,34 +15,34 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Tugas 16 Flutter',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: const Color(0xFFE0E5EC),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0040E0)),
       ),
-      // PUSHNAMEWD
-      // initialRoute: "/",
-      // routes: {"/": (context) => Anjay(), "/grid": (context) => DrawerDay13()},
-      home: Anjay(),
+      home: FutureBuilder<String?>(
+        future: TokenStorage.getToken(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              backgroundColor: Color(0xFFE0E5EC),
+              body: Center(
+                child: CircularProgressIndicator(color: Color(0xFF0040E0)),
+              ),
+            );
+          }
+          if (snapshot.hasData &&
+              snapshot.data != null &&
+              snapshot.data!.isNotEmpty) {
+            return const ProfileView();
+          }
+          return const LoginView();
+        },
+      ),
     );
   }
 }

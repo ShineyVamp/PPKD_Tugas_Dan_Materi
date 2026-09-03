@@ -40,7 +40,7 @@ class _AnjayState extends State<Anjay> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(40, 100, 40, 20),
+            padding: const EdgeInsets.fromLTRB(20, 100, 20, 20),
             child: Container(
               decoration: BoxDecoration(
                 color: const Color(0xffE0E5EC),
@@ -89,7 +89,7 @@ class _AnjayState extends State<Anjay> {
           SingleChildScrollView(
             clipBehavior: Clip.none,
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: Row(
               children: [
                 GestureDetector(
@@ -242,7 +242,7 @@ class _AnjayState extends State<Anjay> {
                   return Center(child: Text('Tidak ada data produk.'));
                 }
                 return ListView.separated(
-                  padding: const EdgeInsets.fromLTRB(40, 30, 40, 20),
+                  padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
                   clipBehavior: Clip.hardEdge,
                   itemCount: posts.length,
                   separatorBuilder: (context, index) =>
@@ -312,6 +312,33 @@ class _AnjayState extends State<Anjay> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.star_rounded,
+                                color: Colors.amber,
+                                size: 24,
+                              ),
+                              SizedBox(width: 6),
+                              Text(
+                                post.rating?.rate != null
+                                    ? post.rating!.rate.toString()
+                                    : "0.0",
+                                style: GoogleFonts.inter(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                "(${post.rating?.count ?? 0} reviews)",
+                                style: GoogleFonts.inter(
+                                  fontSize: 14,
+                                  color: const Color(0xff75777B),
+                                ),
+                              ),
+                            ],
+                          ),
                           SizedBox(height: 16),
                           Text(
                             post.description ?? "",
@@ -364,7 +391,7 @@ class _AnjayState extends State<Anjay> {
                                         child: Text(
                                           "See Details",
                                           style: GoogleFonts.inter(
-                                            fontSize: 16,
+                                            fontSize: 14,
                                             color: Color(0xff0040E0),
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -403,12 +430,13 @@ class _AnjayState extends State<Anjay> {
                                         Icon(
                                           Icons.add_shopping_cart,
                                           color: Color(0xff0040E0),
+                                          size: 16,
                                         ),
                                         SizedBox(width: 8),
                                         Text(
                                           "Add To Cart",
                                           style: GoogleFonts.inter(
-                                            fontSize: 16,
+                                            fontSize: 14,
                                             color: Color(0xff0040E0),
                                             fontWeight: FontWeight.w400,
                                           ),
