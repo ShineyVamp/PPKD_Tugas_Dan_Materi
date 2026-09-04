@@ -10,10 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 class EditProfileView extends StatefulWidget {
   final String currentName;
 
-  const EditProfileView({
-    super.key,
-    required this.currentName,
-  });
+  const EditProfileView({super.key, required this.currentName});
 
   @override
   State<EditProfileView> createState() => _EditProfileViewState();
@@ -55,7 +52,9 @@ class _EditProfileViewState extends State<EditProfileView> {
         SnackBar(
           backgroundColor: const Color(0xFF38A169),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           content: Text(
             response.message ?? 'Nama profil berhasil diperbarui!',
             style: GoogleFonts.inter(fontWeight: FontWeight.w500),
@@ -71,7 +70,9 @@ class _EditProfileViewState extends State<EditProfileView> {
         SnackBar(
           backgroundColor: const Color(0xFFE53E3E),
           behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           content: Text(
             e.toString().replaceAll('Exception: ', ''),
             style: GoogleFonts.inter(fontWeight: FontWeight.w500),
